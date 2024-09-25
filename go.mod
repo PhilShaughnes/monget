@@ -1,4 +1,4 @@
-module github.com/PhilShaughnes/monit
+module github.com/PhilShaughnes/monget
 
 go 1.23.1
 

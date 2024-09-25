@@ -54,14 +54,10 @@ func main() {
 		outFile = flag.String("file", "", "output file path (leave empty for stdout)")
 	)
 	flag.Parse()
-	slog.Info("murl", slog.String("url", *murl))
 	if !strings.HasPrefix(*murl, MONGO_PREFIX) {
 		*murl = MONGO_PREFIX + *murl
 	}
-	slog.Info("murl", slog.String("url", *murl))
 	mongoUrl := fmt.Sprintf("%s:%d/%s", *murl, *mport, MONGO_OPTS)
-	// *murl = fmt.Sprintf("%s:%d/%s", murl, mport, MONGO_OPTS)
-	slog.Info("mongoUrl", slog.String("url", mongoUrl))
 
 	opts := options.Client().ApplyURI(mongoUrl)
 	err := opts.Validate()
